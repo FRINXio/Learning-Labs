@@ -1,0 +1,26 @@
+{
+ "labId": "02-labs-01-aggregate-connections-with-LACP",
+ "title": "CLL: FRINX OpenDaylight Aggregate Connections With LACP",
+ "slug": "Learn how to programmatically configure LACP link bundles to aggregate several parallel physical connections into one logical connection",
+ "time": 60,
+ "byod": true,
+ "files": [
+   {"title": "Step 1: lacp-sevice.py and FRINX UniConfig",
+     "file": "1.md"},
+   {"title": "Step 2: Install and configure the LACP service application",
+     "file": "2.md"},
+   {"title": "Step 3: Provision the LACP service",
+     "file": "3.md"},
+ ],
+ "tags": [
+   {"title": "CLL: FRINX OpenDaylight Aggregate Connections With LACP"}
+ ],
+ "related": [
+   {
+   }
+ ],
+ "authors": [
+     {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
+ ],
+ "active": false
+}

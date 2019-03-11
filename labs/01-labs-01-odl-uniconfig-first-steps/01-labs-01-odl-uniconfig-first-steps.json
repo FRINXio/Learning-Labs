@@ -1,5 +1,5 @@
 {
- "labId": "00-labs-01-odl-uniconfig-first-steps",
+ "labId": "01-labs-01-odl-uniconfig-first-steps",
  "title": "CLL: FRINX OpenDaylight & UniConfig - First Steps",
  "slug": "Learn to install FRINX OpenDaylight with UniConfig and run a number of API calls from a Postman collection to configure an IOS XE networking device",
  "time": 60,
