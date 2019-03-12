@@ -1,0 +1,26 @@
+{
+ "labId": "02-labs-01-aggregate-connections-with-LACP",
+ "title": "Create LACP link bundles using sample application",
+ "slug": "Learn how to use and create a simple Python application that leverages the FRINX UniConfig framework to provision LACP link bundles between two network devices",
+ "time": 10,
+ "byod": true,
+ "files": [
+   {"title": "Step 0: Get to know LACP",
+     "file": "1.md"},
+   {"title": "Step 1: Install and configure LACP service application",
+     "file": "2.md"},
+   {"title": "Step 3: Provision the LACP service",
+     "file": "3.md"}
+ ],
+ "tags": [
+   {"title": "Create LACP link bundles using sample application"}
+ ],
+ "related": [
+   {
+   }
+ ],
+ "authors": [
+     {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
+ ],
+ "active": true
+}
