@@ -34,5 +34,5 @@
  "authors": [
      {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
  ],
- "active": false
+ "active": true
 }
