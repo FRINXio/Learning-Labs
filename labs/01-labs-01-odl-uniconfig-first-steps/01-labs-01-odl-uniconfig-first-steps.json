@@ -22,7 +22,9 @@
    {"title": "Step 8: Unmount device",
      "file": "8.md"},
    {"title": "Appendix",
-     "file": "9.md"}
+     "file": "9.md"},
+   {"title": "Full installation guide",
+     "file": "10.md:}
  ],
  "tags": [
    {"title": "CLL: FRINX OpenDaylight & UniConfig - First Steps"}
