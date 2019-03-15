@@ -15,14 +15,16 @@
      "file": "4.md"},
    {"title": "Step 5: UniConfig API call to set IP address - OpenConfig",
      "file": "5.md"},
-   {"title": "Step 6: Show all interfacesg",
+   {"title": "Step 6: Show all interfaces",
      "file": "6.md"},
    {"title": "Step 7: Execute & Read API call to show interface counters details",
      "file": "7.md"},
    {"title": "Step 8: Unmount device",
      "file": "8.md"},
    {"title": "Appendix",
-     "file": "9.md"}
+     "file": "9.md"},
+   {"title": "Full installation guide",
+     "file": "10.md:}
  ],
  "tags": [
    {"title": "CLL: FRINX OpenDaylight & UniConfig - First Steps"}
