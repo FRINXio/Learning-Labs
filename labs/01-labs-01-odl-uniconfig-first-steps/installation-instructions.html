@@ -1,37 +1,68 @@
-<h1 id="installationinstructions">Installation Instructions</h1>
+<h1 id="installation-instructions">Installation Instructions</h1>
+<h2 id="download-frinx-odl-learning-lab-postman-collection">Download FRINX ODL &amp; Learning Lab Postman collection</h2>
+<p>Before you set up the learning lab and execute the steps described in this guide you first need to prepare your environment. You will need the following components to complete this lab:</p>
+<ol style="list-style-type: decimal">
+<li>A host, a VM or a container (preferred) running FRINX ODL</li>
+<li>An instance of the Postman application (can run on the same or different host as ODL)</li>
+<li>A physical or a virtual router running IOS XE that has IP reachability to the ODL host/VM/container (these instructions assume that you have access to a physical or virtual router. Setting up a virtual router instance is outside the scope of this document)</li>
+</ol>
+<h2 id="running-frinx-odl-with-docker">Running FRINX ODL with Docker</h2>
+<p>To use FRINX ODL you need a license token. The following token can be used for lab and demonstration purposes and is valid for one month. Use your terminal (on Linux and Mac OSX) or Powershell on Windows and enter the following environment variable.</p>
+<pre><code>TOKEN=0e57a786f7dbd27fa77db684cf3b234d6f23ed784e52cbfb107fd4317ba2646c66f7a141b0e823946d8f9d956852c95d33dc82f945779b1c9969049e94935b2a</code></pre>
+<p>You will need to have Docker installed on your platform that you will use for your lab (MacOSX, Linux, Windows). You can find download and installation instructions here: <a href="https://www.docker.com/get-started">https://www.docker.com/get-started</a></p>
+<h3 id="using-linux">Using Linux</h3>
+<p>The simplest way to start is to use an image from docker hub:</p>
+<pre><code>sudo docker pull frinx/frinx_odl:3.1.6.frinx</code></pre>
+<p>If you have not already set the variable for the license token do this now by typing:</p>
+<pre><code>TOKEN=0e57a786f7dbd27fa77db684cf3b234d6f23ed784e52cbfb107fd4317ba2646c66f7a141b0e823946d8f9d956852c95d33dc82f945779b1c9969049e94935b2a</code></pre>
+<p>Start the FRINX ODL container:</p>
+<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.6.frinx frinx.createtoken.force $TOKEN</code></pre>
+<p>If for some reason you chose or can not use a container to run FRINX ODL, look in the Appendix section for native installation instructions.</p>
+<h3 id="using-mac-os-x">Using Mac OS X</h3>
+<p>Using Docker on MacOSX, note that you will have to increase the memory resources available to the docker Engine. Open the Docker Icon (the little whale) in your status menu (upper right of your desktop) and selecting &quot;Preferences&quot;, &quot;Choose&quot;, &quot;Advanced&quot; and increase the memory available to Docker Engine to 5GB or more. Click on &quot;Apply and restart&quot; after you have made the changes to make them effective&quot;.</p>
+<p>After you have increased memory available to the Docker engine please enter:</p>
+<pre><code>sudo docker pull frinx/frinx_odl:3.1.6.frinx</code></pre>
+<p>If you have not already set the variable for the license token do this now by typing:</p>
+<pre><code>TOKEN=0e57a786f7dbd27fa77db684cf3b234d6f23ed784e52cbfb107fd4317ba2646c66f7a141b0e823946d8f9d956852c95d33dc82f945779b1c9969049e94935b2a</code></pre>
+<p>Start the container with:</p>
+<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.6.frinx frinx.createtoken.force $TOKEN</code></pre>
+<h3 id="using-windows">Using Windows</h3>
+<p>Use <strong>PowerShell</strong> to download and start the FRINX ODL container. Docker for Windows also needs a memory boost. Open Docker in the task bar, right click on the Whale icon and choose &quot;Settings&quot;. Then, click on &quot;Advanced&quot; and allocate at least 5120 MB of memory for the Docker. The rest of the start-up process is similar to the ones on Linux and OS X, but you can omit the &quot;sudo&quot; command.</p>
+<p>Download the FRINX ODL image from docker hub:</p>
+<pre><code>docker pull frinx/frinx_odl:3.1.6.frinx</code></pre>
+<p>Note, that you need to add token to the end of command</p>
+<p>Start the container:</p>
+<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.6.frinx frinx.createtoken.force 0e57a786f7dbd27fa77db684cf3b234d6f23ed784e52cbfb107fd4317ba2646c66f7a141b0e823946d8f9d956852c95d33dc82f945779b1c9969049e94935b2a</code></pre>
+<h3 id="frinx-odl-prompt">FRINX ODL Prompt</h3>
+<p>After starting the FRINX ODL container, you will see the output similar to the one below:</p>
+<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.6.frinx frinx.createtoken.force $TOKEN
+Password:
+Apache Karaf starting up. Press Enter to open the shell now...
+100% [========================================================================]
 
-<p>Please, prepare your environment according to steps listed below:</p>
+Karaf started in 55s. Bundle stats: 296 active, 296 total
 
-<h2 id="postman">Postman</h2>
+         _________      .__
+         \________\__ __|__| ____ __  ___
+           / | ___\  v__\  |/    \  \/  /
+          /  | \ |   |  |  |   |  \    \\
+          \__| / |___|  |__&gt;___|  /_/\__\\
+             \/                 \/
 
-<p>Download and install the Postman application.</p>
-
+frinx version: 3.1.6.frinx
+frinx-user@root&gt;</code></pre>
+<p>On the FRINX ODL prompt, enter the following command to install the required features:</p>
+<pre><code>feature:install cli-southbound-all-units odl-restconf odl-netconf-connector-all unified-topology-all-units frinx-installer-backend uniconfig-node-manager</code></pre>
+<p>Starting the ODL container and installing the features may take between 5-7 minutes depending on the resources of your system..</p>
+<h3 id="postman">Postman</h3>
+<p>Now download and install the Postman application</p>
 <p>You can download Postman at this link for all major platform:</p>
-
 <p><a href="https://www.getpostman.com/postman">https://www.getpostman.com/postman</a></p>
-
-<h2 id="addingthelearninglabcollectiontopostman">Adding the learning lab collection to Postman</h2>
-
-<p>After installing Postman import the collection (<strong>Learning<em>Lab</em>part1.json</strong>) and device environment (<strong>xe<em>env</em>learn.json</strong>). Open Postman and click "Import" button in the upper left corner. Select "Import from Link" and import the following links:</p>
-
+<h3 id="adding-the-learning-lab-collection-to-postman">Adding the learning lab collection to Postman</h3>
+<p>After installing Postman import the collection (<strong>Learning_Lab_part1.json</strong>) and device environment (<strong>xe_env_learn.json</strong>). Open Postman and click &quot;Import&quot; button in the upper left corner. Select &quot;Import from Link&quot; and import the following links.</p>
 <p>Postman collection:</p>
-
-<p><a href="https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Learning%20Labs/Part%201/Learning_Lab_part1.json">https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Learning%20Labs/Part%201/Learning<em>Lab</em>part1.json</a></p>
-
+<p><a href="https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Learning%20Labs/Part%201/Learning_Lab_part1.json">https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Learning%20Labs/Part%201/Learning_Lab_part1.json</a></p>
 <p>Device environment:</p>
-
-<p><a href="https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Learning%20Labs/Part%201/xe_env_learn.json">https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Learning%20Labs/Part%201/xe<em>env</em>learn.json</a></p>
-
-<p>Now you have a new collection "Learning Lab part1" and a new environment file "xe<em>env</em>learn" available in postman. Select the environment file from the dropdown list on the upper right. Edit the variables to match your lab environment.</p>
-
-<h2 id="authorization">Authorization</h2>
-
-<p>To access our virtual lab server, you have to authorize your access. After opening Postoman environment, click on <strong>Authorization</strong> under request prompt.</p>
-
-<p>Change "TYPE" of authorization to "Basic Auth" and insert following data:</p>
-
-<p><strong>Username</strong>: admin</p>
-
-<p><strong>Password</strong>: xBS55z24FV2HWu5u</p>
-
-<p>Now press "Preview Request" and you're ready to go!</p>
+<p><a href="https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Learning%20Labs/Part%201/xe_env_learn.json">https://raw.githubusercontent.com/FRINXio/Postman/carbon/development/Learning%20Labs/Part%201/xe_env_learn.json</a></p>
+<p>Now you have a new collection &quot;Learning Lab part1&quot; and a new environment file &quot;xe_env_learn&quot; available in postman. Select the environment file from the dropdown list on the upper right. Edit the variables to match your lab environment.</p>
+<p>Click on the &quot;eye&quot; icon in the upper right corner, click &quot;edit&quot; and adjust your environment to suit your needs. Make sure your &quot;odl_ip&quot; variable reflects the source locality of your OpenDaylight. Next, insert the IP address of the device into the variable &quot;classic_ip&quot;.</p>
