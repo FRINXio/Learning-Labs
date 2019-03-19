@@ -24,11 +24,15 @@
    {"title": "Appendix",
      "file": "9.md"},
    {"title": "Full installation guide",
-     "file": "10.md:}
+     "file": "10.md"}
  ],
- "tags": [
-   {"title": "CLL: FRINX OpenDaylight & UniConfig - First Steps"}
- ],
+ "tags" : [
+    {"title": "FRINX"},
+    {"title": "Python"},
+    {"title": "Data Center"},
+    {"title": "API"},
+    {"title": "Network Automation"}
+  ],
  "related": [
 {
 "labId": "02-labs-01-aggregate-connections-with-LACP",
