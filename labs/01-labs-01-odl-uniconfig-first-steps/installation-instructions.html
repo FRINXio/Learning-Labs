@@ -12,11 +12,11 @@
 <p>You will need to have Docker installed on your platform that you will use for your lab (MacOSX, Linux, Windows). You can find download and installation instructions here: <a href="https://www.docker.com/get-started">https://www.docker.com/get-started</a></p>
 <h3 id="using-linux">Using Linux</h3>
 <p>The simplest way to start is to use an image from docker hub:</p>
-<pre><code>sudo docker pull frinx/frinx_odl:3.1.6.frinx</code></pre>
+<pre><code>sudo docker pull frinx/frinx_odl:3.1.7.frinx</code></pre>
 <p>If you have not already set the variable for the license token do this now by typing:</p>
 <pre><code>TOKEN=0e57a786f7dbd27fa77db684cf3b234d6f23ed784e52cbfb107fd4317ba2646c66f7a141b0e823946d8f9d956852c95d33dc82f945779b1c9969049e94935b2a</code></pre>
 <p>Start the FRINX ODL container:</p>
-<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.6.frinx frinx.createtoken.force $TOKEN</code></pre>
+<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.7.frinx frinx.createtoken.force $TOKEN</code></pre>
 <p>If for some reason you chose or can not use a container to run FRINX ODL, look in the Appendix section for native installation instructions.</p>
 <h3 id="using-mac-os-x">Using Mac OS X</h3>
 <p>Using Docker on MacOSX, note that you will have to increase the memory resources available to the docker Engine. Open the Docker Icon (the little whale) in your status menu (upper right of your desktop) and selecting &quot;Preferences&quot;, &quot;Choose&quot;, &quot;Advanced&quot; and increase the memory available to Docker Engine to 5GB or more. Click on &quot;Apply and restart&quot; after you have made the changes to make them effective&quot;.</p>
@@ -25,17 +25,17 @@
 <p>If you have not already set the variable for the license token do this now by typing:</p>
 <pre><code>TOKEN=0e57a786f7dbd27fa77db684cf3b234d6f23ed784e52cbfb107fd4317ba2646c66f7a141b0e823946d8f9d956852c95d33dc82f945779b1c9969049e94935b2a</code></pre>
 <p>Start the container with:</p>
-<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.6.frinx frinx.createtoken.force $TOKEN</code></pre>
+<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.7.frinx frinx.createtoken.force $TOKEN</code></pre>
 <h3 id="using-windows">Using Windows</h3>
 <p>Use <strong>PowerShell</strong> to download and start the FRINX ODL container. Docker for Windows also needs a memory boost. Open Docker in the task bar, right click on the Whale icon and choose &quot;Settings&quot;. Then, click on &quot;Advanced&quot; and allocate at least 5120 MB of memory for the Docker. The rest of the start-up process is similar to the ones on Linux and OS X, but you can omit the &quot;sudo&quot; command.</p>
 <p>Download the FRINX ODL image from docker hub:</p>
 <pre><code>docker pull frinx/frinx_odl:3.1.6.frinx</code></pre>
 <p>Note, that you need to add token to the end of command</p>
 <p>Start the container:</p>
-<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.6.frinx frinx.createtoken.force 0e57a786f7dbd27fa77db684cf3b234d6f23ed784e52cbfb107fd4317ba2646c66f7a141b0e823946d8f9d956852c95d33dc82f945779b1c9969049e94935b2a</code></pre>
+<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.7.frinx frinx.createtoken.force 0e57a786f7dbd27fa77db684cf3b234d6f23ed784e52cbfb107fd4317ba2646c66f7a141b0e823946d8f9d956852c95d33dc82f945779b1c9969049e94935b2a</code></pre>
 <h3 id="frinx-odl-prompt">FRINX ODL Prompt</h3>
 <p>After starting the FRINX ODL container, you will see the output similar to the one below:</p>
-<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.6.frinx frinx.createtoken.force $TOKEN
+<pre><code>sudo docker run -it -p 8181:8181 frinx/frinx_odl:3.1.7.frinx frinx.createtoken.force $TOKEN
 Password:
 Apache Karaf starting up. Press Enter to open the shell now...
 100% [========================================================================]
@@ -49,7 +49,7 @@ Karaf started in 55s. Bundle stats: 296 active, 296 total
           \__| / |___|  |__&gt;___|  /_/\__\\
              \/                 \/
 
-frinx version: 3.1.6.frinx
+frinx version: 3.1.7.frinx
 frinx-user@root&gt;</code></pre>
 <p>On the FRINX ODL prompt, enter the following command to install the required features:</p>
 <pre><code>feature:install cli-southbound-all-units odl-restconf odl-netconf-connector-all unified-topology-all-units frinx-installer-backend uniconfig-node-manager</code></pre>
