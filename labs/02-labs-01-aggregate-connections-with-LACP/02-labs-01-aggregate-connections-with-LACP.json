@@ -11,12 +11,22 @@
      "file": "2.md"},
    {"title": "Step 3: Provision the LACP service",
      "file": "3.md"}
- ],
- "tags": [
-   {"title": "Create LACP link bundles using sample application"}
- ],
- "authors": [
-     {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
- ],
- "active": true
-}
+   ],
+   "tags" : [
+      {"title": "FRINX"},
+      {"title": "Python"},
+      {"title": "Data Center"},
+      {"title": "API"},
+      {"title": "Network Automation"}
+    ],
+   "related": [
+  {
+    "labId": "01-labs-01-odl-uniconfig-first-steps",
+    "title": "CLL: FRINX OpenDaylight & UniConfig - First Steps"
+  }
+   ],
+   "authors": [
+       {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
+   ],
+   "active": true
+  }
