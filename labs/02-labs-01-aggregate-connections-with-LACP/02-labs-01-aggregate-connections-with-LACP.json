@@ -9,7 +9,7 @@
      "file": "1.md"},
    {"title": "Step 1: Install and configure LACP service application",
      "file": "2.md"},
-   {"title": "Step 3: Provision the LACP service",
+   {"title": "Step 2: Provision the LACP service",
      "file": "3.md"}
    ],
    "tags" : [
