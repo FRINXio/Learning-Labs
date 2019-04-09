@@ -23,6 +23,5 @@ In this lab you will learn to install FRINX OpenDaylight (ODL) with UniConfig an
 
 [Basic installation and configuration guide](installation-instructions.html)
 
-[Using your own device? Click here for guidance](byod.html)
 
 
