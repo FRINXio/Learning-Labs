@@ -1,0 +1,35 @@
+{
+ "labId": "03-labs-01-frinx-machine-lldp",
+ "title": "FRINX Machine - LLDP",
+ "slug": "Learn how to collect LLDP information from different networking devices and reconcile that information into a single topology based on the IETF topology data model",
+ "time": 15,
+ "byod": true,
+ "files": [
+   {"title": "Step 1: Obtain LLDP topology data",
+     "file": "1.md"},
+   {"title": "Step 2: Create a new device in the inventory",
+     "file": "2.md"},
+   {"title": "Step 3: Mount the devices in FRINX OpenDaylight",
+     "file": "3.md"},
+   {"title": "Step 4: Collect LLDP Information from Devices and Build Topology",
+     "file": "4.md"},
+   {"title": "Step 5: Exporting the IETF topology information in graphviz format",
+     "file": "5.md"}
+   ],
+   "tags" : [
+      {"title": "FRINX"},
+      {"title": "Data Center"},
+      {"title": "API"},
+      {"title": "Network Automation"}
+    ],
+   "related": [
+  {
+    "labId": "ostatne frinx machine labaky",
+    "title": "ostatne frinx machine labaky"
+  }
+   ],
+   "authors": [
+       {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
+   ],
+   "active": true
+  }
