@@ -24,8 +24,12 @@
     ],
    "related": [
   {
-    "labId": "ostatne frinx machine labaky",
-    "title": "ostatne frinx machine labaky"
+    "labId": "04-labs-01-frinx-machine-platform",
+    "title": "FRINX Machine - Platform"
+  },
+  {
+    "labId": "05-labs-01-frinx-machine-l2vpn",
+    "title": "FRINX Machine - L2VPN"
   }
    ],
    "authors": [
