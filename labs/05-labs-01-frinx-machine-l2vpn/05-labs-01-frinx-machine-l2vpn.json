@@ -5,9 +5,9 @@
   "time": 10,
   "byod": true,
  "files": [
-   {"title": "Step 1: DOPLNIT",
+   {"title": "Step 1: Mount devices",
      "file": "1.md"},
-   {"title": "Step 2: DOPLNIT",
+   {"title": "Step 2: Running the L2VPN workflow",
      "file": "2.md"}
    ],
    "tags" : [
