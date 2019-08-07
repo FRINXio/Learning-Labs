@@ -1,7 +1,7 @@
-## Obtain platform inventory data
+## Create Layer-2 VPN
 
-In this lab we show how users can execute workflows to obtain platform inventory data from devices in the network and to store them in the inventory (Elasticsearch).
+In this lab we show how users can execute workflows to create a Layer-2 VPN
 
-[Step 1: Obtain platform inventory data](1.md)
+[Step 1: Mount devices](1.md)
 
-[Step 2: Collect platform information from the device and store in the inventory](2.md)
+[Step 2: Running the L2VPN workflow](2.md)
