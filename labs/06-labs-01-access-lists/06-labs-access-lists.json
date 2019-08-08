@@ -1,0 +1,42 @@
+{
+ "labId": "01-labs-01-odl-uniconfig-first-steps",
+ "title": "CLL: FRINX OpenDaylight & UniConfig - First Steps",
+ "slug": "Learn to install FRINX OpenDaylight with UniConfig and run a number of API calls from a Postman collection to configure an IOS XE networking device",
+ "time": 60,
+ "byod": true,
+ "files": [
+   {"title": "Step 1: Mount a Cisco IOS XE device via CLI",
+     "file": "1.md"},
+   {"title": "Step 2: Check if the device is connected",
+     "file": "2.md"},
+   {"title": "Step 3: UniConfig API call to create loopback interface",
+     "file": "3.md"},
+   {"title": "Step 4: UniConfig API call to create loopback interface",
+     "file": "4.md"},
+   {"title": "Step 5: UniConfig API call to set IP address - OpenConfig",
+     "file": "5.md"},
+   {"title": "Step 6: Show all interfaces",
+     "file": "6.md"},
+   {"title": "Step 7: Execute & Read API call to show interface counters details",
+     "file": "7.md"},
+   {"title": "Step 8: Unmount device",
+     "file": "8.md"},
+   {"title": "Appendix",
+     "file": "9.md"},
+   {"title": "Full installation guide",
+     "file": "10.md:}
+ ],
+ "tags": [
+   {"title": "CLL: FRINX OpenDaylight & UniConfig - First Steps"}
+ ],
+ "related": [
+{
+"labId": "02-labs-01-aggregate-connections-with-LACP",
+"title": "CLL: FRINX OpenDaylight Aggregate Connections With LACP"
+}
+ ],
+ "authors": [
+     {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
+ ],
+ "active": true
+}
