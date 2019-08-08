@@ -1,6 +1,6 @@
 # FRINX OpenDaylight & UniConfig - Access Lists
 
-In this lab you will learn to create, edit, remove and place access-lists on devices using FRINX OpenDaylight (ODL) with UniConfig. You will also learn how to monitor and confirm that access lists were created, edited, removed or placed on the device.
+In this lab you will learn to create, remove and place access-lists on devices using FRINX OpenDaylight (ODL) with UniConfig. You will also learn how to monitor and confirm that access lists were created, removed or placed on the device.
 
 ## Objectives
 
@@ -13,7 +13,7 @@ When you have completed this lab, you will be able to:
 
 ## Prerequisites
 
-* This lab assumes general knowledge of using a<a href="http://www.https://frinxio.github.io/Learning-Labs/labs/01-labs-01-odl-uniconfig-first-steps/">ODL and Postman</a>
+* This lab assumes general knowledge of using a <a href="http://www.https://frinxio.github.io/Learning-Labs/labs/01-labs-01-odl-uniconfig-first-steps/">ODL and Postman</a>
 
 ## Sub Heading 2 (Optional)
 
