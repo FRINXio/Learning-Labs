@@ -1,33 +1,35 @@
 {
- "labId": "01-labs-01-odl-uniconfig-first-steps",
- "title": "CLL: FRINX OpenDaylight & UniConfig - First Steps",
- "slug": "Learn to install FRINX OpenDaylight with UniConfig and run a number of API calls from a Postman collection to configure an IOS XE networking device",
+ "labId": "06-labs-01-odl-uniconfig-access-lists",
+ "title": "CLL: FRINX OpenDaylight & UniConfig - Access lists",
+ "slug": "Learn to use FRINX OpenDaylight with UniConfig and create access lists an IOS XRV networking device",
  "time": 60,
  "byod": true,
  "files": [
-   {"title": "Step 1: Mount a Cisco IOS XE device via CLI",
+   {"title": "Step 1: Create access list on a Cisco IOS XRV device via CLI",
      "file": "1.md"},
-   {"title": "Step 2: Check if the device is connected",
+   {"title": "Step 2: Sync from network",
      "file": "2.md"},
-   {"title": "Step 3: UniConfig API call to create loopback interface",
+   {"title": "Step 3: Replace config with operational",
      "file": "3.md"},
-   {"title": "Step 4: UniConfig API call to create loopback interface",
+   {"title": "Step 4: Show ipv4/ipv6 access list",
      "file": "4.md"},
-   {"title": "Step 5: UniConfig API call to set IP address - OpenConfig",
+   {"title": "Step 5: Delete access list on a Cisco IOS XRV device via CLI",
      "file": "5.md"},
-   {"title": "Step 6: Show all interfaces",
+   {"title": "Step 6: Sync from network",
      "file": "6.md"},
-   {"title": "Step 7: Execute & Read API call to show interface counters details",
+   {"title": "Step 7: Replace config with operational",
      "file": "7.md"},
-   {"title": "Step 8: Unmount device",
+   {"title": "Step 8: Show deleted ipv4/ipv6 access list",
      "file": "8.md"},
-   {"title": "Appendix",
+   {"title": "Create access list ingress or egress",
      "file": "9.md"},
-   {"title": "Full installation guide",
-     "file": "10.md:}
+   {"title": "UniConfig API call to sync from network",
+     "file": "10.md"}
+   {"title": "UniConfig API call to commit changes",
+     "file": "10.md"}
  ],
  "tags": [
-   {"title": "CLL: FRINX OpenDaylight & UniConfig - First Steps"}
+   {"title": "CLL: FRINX OpenDaylight & UniConfig - Access lists"}
  ],
  "related": [
 {
