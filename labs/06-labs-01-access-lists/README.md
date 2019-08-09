@@ -27,10 +27,19 @@ In this lab you will learn to create, remove and place access-lists on devices u
 
 ## Placing access list on a interface
 
-[Step 1: Create access list ingress or egress](9.md)
+[Step 1: Create access list ingress or egress on interface](9.md)
 
-[Step 2: UniConfig API call to sync from network](10.md)
+[Step 2: UniConfig API call to commit configuration](10.md)
 
-[Step 3: UniConfig API call to commit changes](11.md)
+[Step 3: UniConfig API call to show placed access list](11.md)
+
+
+## Deleting access list from a interface
+
+[Step 1: Delete access list ingress or egress from interface](12.md)
+
+[Step 2: UniConfig API call to commit configuration](13.md)
+
+[Step 3: UniConfig API call to show deleted access list](14.md)
 
 

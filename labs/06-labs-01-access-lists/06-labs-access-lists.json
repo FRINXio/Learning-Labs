@@ -23,10 +23,16 @@
      "file": "8.md"},
    {"title": "Create access list ingress or egress",
      "file": "9.md"},
-   {"title": "UniConfig API call to sync from network",
-     "file": "10.md"}
-   {"title": "UniConfig API call to commit changes",
-     "file": "10.md"}
+   {"title": "UniConfig API call to commit configuration",
+     "file": "10.md"},
+   {"title": "UniConfig API call to show placed access list",
+     "file": "11.md"},
+   {"title": "Delete access list ingress or egress from interface",
+     "file": "12.md"},
+   {"title": "UniConfig API call to commit configuration",
+     "file": "13.md"},
+   {"title": "UniConfig API call to show deleted access list",
+     "file": "14.md"}
  ],
  "tags": [
    {"title": "CLL: FRINX OpenDaylight & UniConfig - Access lists"}
