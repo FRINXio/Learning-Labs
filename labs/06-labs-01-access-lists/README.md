@@ -25,7 +25,7 @@ In this lab you will learn to create, remove and place access-lists on devices u
 [Step 4: UniConfig API call to show that access list was deleted](8.md)
 
 
-## Placing access list on a interface
+## Placing access list on an interface
 
 [Step 1: Create access list ingress or egress on interface](9.md)
 
@@ -34,7 +34,7 @@ In this lab you will learn to create, remove and place access-lists on devices u
 [Step 3: UniConfig API call to show placed access list](11.md)
 
 
-## Deleting access list from a interface
+## Deleting access list from an interface
 
 [Step 1: Delete access list ingress or egress from interface](12.md)
 

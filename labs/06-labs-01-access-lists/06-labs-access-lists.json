@@ -1,7 +1,7 @@
 {
  "labId": "06-labs-01-odl-uniconfig-access-lists",
  "title": "CLL: FRINX OpenDaylight & UniConfig - Access lists",
- "slug": "Learn to use FRINX OpenDaylight with UniConfig and create access lists an IOS XRV networking device",
+ "slug": "Learn to use FRINX OpenDaylight with UniConfig and create access lists on IOS XRV networking device",
  "time": 60,
  "byod": true,
  "files": [
@@ -21,17 +21,17 @@
      "file": "7.md"},
    {"title": "Step 8: Show deleted ipv4/ipv6 access list",
      "file": "8.md"},
-   {"title": "Create access list ingress or egress",
+   {"title": "Step 9: Create access list ingress or egress",
      "file": "9.md"},
-   {"title": "UniConfig API call to commit configuration",
+   {"title": "Step 10: UniConfig API call to commit configuration",
      "file": "10.md"},
-   {"title": "UniConfig API call to show placed access list",
+   {"title": "Step 11: UniConfig API call to show placed access list",
      "file": "11.md"},
-   {"title": "Delete access list ingress or egress from interface",
+   {"title": "Step 12: Delete access list ingress or egress from interface",
      "file": "12.md"},
-   {"title": "UniConfig API call to commit configuration",
+   {"title": "Step 13: UniConfig API call to commit configuration",
      "file": "13.md"},
-   {"title": "UniConfig API call to show deleted access list",
+   {"title": "Step 14: UniConfig API call to show deleted access list",
      "file": "14.md"}
  ],
  "tags": [
@@ -42,8 +42,8 @@
  ],
  "related": [
 {
-"labId": "02-labs-01-aggregate-connections-with-LACP",
-"title": "CLL: FRINX OpenDaylight Aggregate Connections With LACP"
+"labId": "01-labs-01-odl-uniconfig-first-steps",
+"title": "FRINX OpenDaylight & UniConfig - First Steps"
 }
  ],
  "authors": [
