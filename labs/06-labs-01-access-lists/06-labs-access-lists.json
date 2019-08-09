@@ -35,7 +35,10 @@
      "file": "14.md"}
  ],
  "tags": [
-   {"title": "CLL: FRINX OpenDaylight & UniConfig - Access lists"}
+      {"title": "FRINX"},
+      {"title": "Data Center"},
+      {"title": "API"},
+      {"title": "Network Automation"}
  ],
  "related": [
 {
