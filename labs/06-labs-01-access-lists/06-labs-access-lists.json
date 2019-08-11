@@ -15,8 +15,6 @@
      "file": "4.md"},
    {"title": "Step 5: Show ipv4/ipv6 access list",
      "file": "5.md"},
-
-
    {"title": "Step 1: Delete access list on a Cisco IOS XRV device via CLI",
      "file": "6.md"},
    {"title": "Step 2: Commit configuration to the device",
@@ -27,16 +25,12 @@
      "file": "9.md"},
    {"title": "Step 5: Show deleted ipv4/ipv6 access list",
      "file": "10.md"},
-
-
    {"title": "Step 1: Create access list ingress or egress on interface via CLI",
      "file": "11.md"},
    {"title": "Step 2: Commit configuration to the device",
      "file": "12.md"},
    {"title": "Step 3: Show placed access list",
      "file": "13.md"},
-
-
    {"title": "Step 1: Delete access list ingress or egress from interface via CLI",
      "file": "14.md"},
    {"title": "Step 2: Commit configuration to the device",
