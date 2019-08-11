@@ -1,11 +1,11 @@
 # FRINX OpenDaylight & UniConfig - Access Lists
 
-In this lab you will learn to create, remove and place access-lists on devices using FRINX OpenDaylight (ODL) with UniConfig. 
+In this lab, you will learn to create, remove and place access-lists on devices using FRINX OpenDaylight (ODL) with UniConfig. 
 
 
-## Creating access list 
+## Creating an access list 
 
-[Step 1: Create ipv4 or ipv6 access list](1.md)
+[Step 1: Create an ipv4 or ipv6 access list](1.md)
 
 [Step 2: UniConfig API call to commit configuration](2.md)
 
@@ -45,5 +45,3 @@ In this lab you will learn to create, remove and place access-lists on devices u
 [Step 2: UniConfig API call to commit configuration](15.md)
 
 [Step 3: UniConfig API call to show deleted access list](16.md)
-
-
