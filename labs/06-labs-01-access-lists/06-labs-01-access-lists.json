@@ -1,5 +1,5 @@
 {
- "labId": "06-labs-01-odl-uniconfig-access-lists",
+ "labId": "06-labs-01-access-lists",
  "title": "CLL: FRINX OpenDaylight & UniConfig - Access lists",
  "slug": "Learn to use FRINX OpenDaylight with UniConfig and create access lists on IOS XRV networking device",
  "time": 60,
