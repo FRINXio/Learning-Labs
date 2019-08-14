@@ -2,7 +2,7 @@
  "labId": "07-labs-01-OSPF",
  "title": "CLL: FRINX OpenDaylight & UniConfig - OSPF",
  "slug": "Learn to use FRINX OpenDaylight with UniConfig and set-up OSPF routing protocol",
- "time": 20,
+ "time": 30,
  "byod": true,
  "files": [
    {"title": "Step 1: Create OSPF process on a Cisco IOS XRV device via CLI",
