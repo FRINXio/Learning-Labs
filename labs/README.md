@@ -14,6 +14,9 @@ Get to know our software and solutions hands on through a series of labs.
 
 * [Create Layer-2 VPN](05-labs-01-frinx-machine-l2vpn/README.md)
 
+* [Create access-lists](06-labs-01-access-lists/README.md)
+
+
 
 
 
