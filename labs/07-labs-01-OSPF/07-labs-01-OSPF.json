@@ -1,0 +1,34 @@
+{
+ "labId": "07-labs-01-OSPF",
+ "title": "CLL: FRINX OpenDaylight & UniConfig - OSPF",
+ "slug": "Learn to use FRINX OpenDaylight with UniConfig and set-up OSPF routing protocol",
+ "time": 20,
+ "byod": true,
+ "files": [
+   {"title": "Step 1: Create OSPF process on a Cisco IOS XRV device via CLI",
+     "file": "1.md"},
+   {"title": "Step 2: Dry run commit",
+     "file": "2.md"},
+   {"title": "Step 3: Commit the configuration",
+     "file": "3.md"},
+   {"title": "Step 4: Show ospf process",
+     "file": "4.md"},
+ ],
+ "tags": [
+      {"title": "FRINX"},
+      {"title": "Data Center"},
+      {"title": "API"},
+      {"title": "Network Automation"}
+      {"title": "IGP"}
+ ],
+ "related": [
+{
+"labId": "01-labs-01-odl-uniconfig-first-steps",
+"title": "FRINX OpenDaylight & UniConfig - First Steps"
+}
+ ],
+ "authors": [
+     {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
+ ],
+ "active": true
+}
