@@ -16,7 +16,5 @@ Get to know our software and solutions hands on through a series of labs.
 
 * [Create access-lists](06-labs-01-access-lists/README.md)
 
-
-
-
+* [Create OSPF routing process](07-labs-01-OSPF/README.md)
 
