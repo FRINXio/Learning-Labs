@@ -21,8 +21,8 @@ In this lab, you will learn to create and remove and update eBGP exterior gatewa
 
 ## Updating eBGP routing protocol
 
-[Step 1: Update the eBGP](4.md)
+[Step 1: Update the eBGP](7.md)
 
-[Step 2: Commit the configuration](5.md)
+[Step 2: Commit the configuration](8.md)
 
-[Step 3: Show the updated configuration](6.md)
+[Step 3: Show the updated configuration](9.md)
