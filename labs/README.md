@@ -18,3 +18,5 @@ Get to know our software and solutions hands on through a series of labs.
 
 * [Create OSPF routing process](07-labs-01-OSPF/README.md)
 
+* [Create eBgp routing process](08-labs-01-BGP/README.md)
+
