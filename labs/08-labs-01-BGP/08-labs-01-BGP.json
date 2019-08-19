@@ -1,0 +1,39 @@
+{
+ "labId": "08-labs-01-BGP",
+ "title": "CLL: FRINX OpenDaylight & UniConfig - BGP",
+ "slug": "Learn to use FRINX OpenDaylight with UniConfig and configure BGP routing protocol",
+ "time": 20,
+ "byod": true,
+ "files": [
+   {"title": "Step 1: Create eBGP on a Cisco IOS XRV device via CLI",
+     "file": "1.md"},
+   {"title": "Step 2: Commit the configuration",
+     "file": "2.md"},
+   {"title": "Step 3: Show the configuration",
+     "file": "3.md"},
+   {"title": "Step 1: Delete the eBGP",
+     "file": "4.md"},
+   {"title": "Step 2: Commit the configuration",
+     "file": "5.md"},
+   {"title": "Step 3: Show the configuration",
+     "file": "6.md"}
+ ],
+ "tags": [
+      {"title": "FRINX"},
+      {"title": "Data Center"},
+      {"title": "API"},
+      {"title": "Network Automation"},
+      {"title": "eBGP"},
+      {"title": "EGP"}
+ ],
+ "related": [
+{
+"labId": "07-labs-01-OSPF",
+"title": "CLL: FRINX OpenDaylight & UniConfig - OSPF"
+}
+ ],
+ "authors": [
+     {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
+ ],
+ "active": true
+}

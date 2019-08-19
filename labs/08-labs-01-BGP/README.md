@@ -5,16 +5,16 @@ In this lab, you will learn to create and remove eBGP exterior gateway routing p
 
 ## Configuring eBGP routing protocol
 
-[Step 1: Create OSPF process](1.md)
+[Step 1: Create eBGP on a Cisco IOS XRV device via CLI](1.md)
 
-[Step 2: Dry run commit](2.md)
+[Step 2: Commit the configuration](2.md)
 
-[Step 3: Commit](3.md)
+[Step 3: Show the configuration](3.md)
 
-## Deleting eBGP protocol
+## Deleting eBGP routing protocol
 
-[Step 1: Delete OSPF process](4.md)
+[Step 1: Delete the eBGP](4.md)
 
-[Step 2: Dry run commit](5.md)
+[Step 2: Commit the configuration](5.md)
 
-[Step 3: Commit](6.md)
+[Step 3: Show the configuration](6.md)
