@@ -1,6 +1,6 @@
 # FRINX OpenDaylight & UniConfig - eBGP
 
-In this lab, you will learn to create and remove eBGP exterior gateway routing protocol on devices using FRINX OpenDaylight (ODL) with UniConfig. 
+In this lab, you will learn to create and remove and update eBGP exterior gateway routing protocol on devices using FRINX OpenDaylight (ODL) with UniConfig. 
 
 
 ## Configuring eBGP routing protocol
@@ -18,3 +18,11 @@ In this lab, you will learn to create and remove eBGP exterior gateway routing p
 [Step 2: Commit the configuration](5.md)
 
 [Step 3: Show the configuration](6.md)
+
+## Updating eBGP routing protocol
+
+[Step 1: Update the eBGP](4.md)
+
+[Step 2: Commit the configuration](5.md)
+
+[Step 3: Show the updated configuration](6.md)
