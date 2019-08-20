@@ -1,7 +1,7 @@
 {
  "labId": "08-labs-01-BGP",
- "title": "CLL: FRINX OpenDaylight & UniConfig - BGP",
- "slug": "Learn to use FRINX OpenDaylight with UniConfig and configure BGP routing protocol",
+ "title": "CLL: FRINX OpenDaylight & UniConfig - eBGP",
+ "slug": "Learn to use FRINX OpenDaylight with UniConfig and configure eBGP routing protocol",
  "time": 30,
  "byod": true,
  "files": [
