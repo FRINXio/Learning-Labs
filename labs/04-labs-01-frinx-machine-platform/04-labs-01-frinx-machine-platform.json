@@ -1,0 +1,33 @@
+{
+ "labId": "04-labs-01-frinx-machine-platform",
+ "title": "FRINX Machine - Platform",
+  "slug": "Collect information about physical devices via their vendor specific NETCONF or CLI interfaces and convert this information into OpenConfig data structures",
+  "time": 10,
+  "byod": true,
+ "files": [
+   {"title": "Step 1: Obtain platform inventory data",
+     "file": "1.md"},
+   {"title": "Step 2: Collect platform information from the device and store in the inventory",
+     "file": "2.md"}
+   ],
+   "tags" : [
+      {"title": "FRINX"},
+      {"title": "Data Center"},
+      {"title": "API"},
+      {"title": "Network Automation"}
+    ],
+   "related": [
+  {
+    "labId": "03-labs-01-frinx-machine-lldp",
+    "title": "FRINX Machine - LLDP"
+  },
+  {
+    "labId": "05-labs-01-frinx-machine-l2vpn",
+    "title": "FRINX Machine - L2VPN"
+  }
+   ],
+   "authors": [
+       {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
+   ],
+   "active": true
+  }
