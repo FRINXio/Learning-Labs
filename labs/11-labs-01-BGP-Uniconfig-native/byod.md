@@ -1,4 +1,4 @@
-### Postman environment for lab08
+### Postman environment for lab11
 
 To make your experience with this lab better, you can download Postman collection and environment including all the variables needed specifically for this lab at  <https://github.com/FRINXio/Postman/tree/carbon/development/learning_labs/part11>
 
