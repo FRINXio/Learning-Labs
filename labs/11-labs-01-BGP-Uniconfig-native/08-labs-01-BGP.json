@@ -1,0 +1,46 @@
+{
+ "labId": "11-labs-01-BGP-Uniconfig-native",
+ "title": "CLL: FRINX OpenDaylight & UniConfig Native - eBGP",
+ "slug": "Learn to use FRINX OpenDaylight with UniConfig Native and configure eBGP routing protocol",
+ "time": 30,
+ "byod": true,
+ "files": [
+   {"title": "Step 1: Create eBGP on a Cisco IOS XRv6 device via uniconfig-native",
+     "file": "1.md"},
+   {"title": "Step 2: Commit the configuration",
+     "file": "2.md"},
+   {"title": "Step 3: Show the configuration",
+     "file": "3.md"},
+   {"title": "Step 1: Delete eBGP on a Cisco IOS XRv6 device via uniconfig-native",
+     "file": "4.md"},
+   {"title": "Step 2: Commit the configuration",
+     "file": "5.md"},
+   {"title": "Step 3: Show the configuration",
+     "file": "6.md"},
+   {"title": "Step 1: Update eBGP on a Cisco IOS XRv6 device via uniconfig-native",
+     "file": "7.md"},
+   {"title": "Step 2: Commit the configuration",
+     "file": "8.md"},
+   {"title": "Step 3: Show updated configuration",
+     "file": "9.md"}  
+ ],
+ "tags": [
+      {"title": "FRINX"},
+      {"title": "Data Center"},
+      {"title": "API"},
+      {"title": "Uniconfig Native"},
+      {"title": "Network Automation"},
+      {"title": "eBGP"},
+      {"title": "EGP"}
+ ],
+ "related": [
+{
+"labId": "10-labs-01-OSPF-Uniconfig-native",
+"title": "CLL: FRINX OpenDaylight & UniConfig Native - OSPF"
+}
+ ],
+ "authors": [
+     {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
+ ],
+ "active": true
+}
