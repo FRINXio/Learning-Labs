@@ -7,20 +7,16 @@
  "files": [
    {"title": "Step 1: Create OSPF process on a Cisco IOS XRV device via CLI",
      "file": "1.md"},
-   {"title": "Step 2: Dry run commit",
+   {"title": "Step 2: Commit the configuration",
      "file": "2.md"},
-   {"title": "Step 3: Commit the configuration",
+   {"title": "Step 3: Show ospf process",
      "file": "3.md"},
-   {"title": "Step 4: Show ospf process",
-     "file": "4.md"},
    {"title": "Step 1: Delete OSPF",
+     "file": "4.md"},
+   {"title": "Step 2: Commit the configuration",
      "file": "5.md"},
-   {"title": "Step 2: Dry run commit",
-     "file": "6.md"},
-   {"title": "Step 3: Commit the configuration",
-     "file": "7.md"},
-   {"title": "Step 4: Show ospf process",
-     "file": "8.md"}
+   {"title": "Step 3: Show ospf process",
+     "file": "6.md"}
  ],
  "tags": [
       {"title": "FRINX"},

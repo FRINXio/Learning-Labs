@@ -7,18 +7,14 @@ In this lab, you will learn to create and remove OSPF routing protocol on device
 
 [Step 1: Create OSPF process](1.md)
 
-[Step 2: Dry run commit](2.md)
+[Step 2: Commit](2.md)
 
-[Step 3: Commit](3.md)
-
-[Step 4: Show OSPF process](4.md)
+[Step 3: Show OSPF process](3.md)
 
 ## Deleting OSPF process
 
-[Step 1: Delete OSPF process](5.md)
+[Step 1: Delete OSPF process](4.md)
 
-[Step 2: Dry run commit](6.md)
+[Step 2: Commit](5.md)
 
-[Step 3: Commit](7.md)
-
-[Step 4: Show OSPF process](8.md)
+[Step 3: Show OSPF process](6.md)
