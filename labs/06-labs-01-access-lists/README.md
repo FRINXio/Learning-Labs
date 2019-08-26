@@ -9,7 +9,7 @@ In this lab, you will learn to create, remove and place access-lists on devices 
 
 [Step 2: UniConfig API call to commit configuration](2.md)
 
-[Step 5: UniConfig API call to show that access list was created](3.md)
+[Step 3: UniConfig API call to show that access list was created](3.md)
 
 
 ## Deleting an access list
@@ -18,7 +18,7 @@ In this lab, you will learn to create, remove and place access-lists on devices 
 
 [Step 2: UniConfig API call to commit configuration](5.md)
 
-[Step 5: UniConfig API call to show that access list was deleted](6.md)
+[Step 3: UniConfig API call to show that access list was deleted](6.md)
 
 
 ## Placing access list on an interface
