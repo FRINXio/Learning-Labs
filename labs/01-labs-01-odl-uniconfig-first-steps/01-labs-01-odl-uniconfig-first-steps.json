@@ -24,7 +24,15 @@
    {"title": "Appendix",
      "file": "9.md"},
    {"title": "Full installation guide",
-     "file": "10.md:}
+     "file": "10.md"},
+    {"title": "Sync from network",
+     "file": "7.md"},
+   {"title": "Replace config with operational",
+     "file": "8.md"},
+   {"title": "Calculate diff",
+     "file": "9.md"},
+   {"title": "Dry run commit",
+     "file": "10.md"}
  ],
  "tags": [
    {"title": "CLL: FRINX OpenDaylight & UniConfig - First Steps"}
