@@ -11,7 +11,7 @@ In this lab, you will learn to create and remove OSPF routing protocol on device
 
 [Step 3: Commit](3.md)
 
-[Step 6: Show OSPF process](4.md)
+[Step 4: Show OSPF process](4.md)
 
 ## Deleting OSPF process
 
@@ -21,4 +21,4 @@ In this lab, you will learn to create and remove OSPF routing protocol on device
 
 [Step 3: Commit](7.md)
 
-[Step 6: Show OSPF process](8.md)
+[Step 4: Show OSPF process](8.md)
