@@ -24,15 +24,19 @@
    {"title": "Appendix",
      "file": "9.md"},
    {"title": "Full installation guide",
-     "file": "10.md"}
+     "file": "10.md"},
+   {"title": "Sync from network",
+     "file": "11.md"},
+   {"title": "Replace config with operational",
+     "file": "12.md"},
+   {"title": "Calculate diff",
+     "file": "13.md"},
+   {"title": "Dry run commit",
+     "file": "14.md"}
  ],
- "tags" : [
-    {"title": "FRINX"},
-    {"title": "Python"},
-    {"title": "Data Center"},
-    {"title": "API"},
-    {"title": "Network Automation"}
-  ],
+ "tags": [
+   {"title": "CLL: FRINX OpenDaylight & UniConfig - First Steps"}
+ ],
  "related": [
 {
 "labId": "02-labs-01-aggregate-connections-with-LACP",
