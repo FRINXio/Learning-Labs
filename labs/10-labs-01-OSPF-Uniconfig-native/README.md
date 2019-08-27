@@ -1,6 +1,6 @@
 # FRINX OpenDaylight & UniConfig - OSPF
 
-In this lab, you will learn to create and remove OSPF routing protocol on devices using FRINX OpenDaylight (ODL) with UniConfig. 
+In this lab, you will learn to create and remove OSPF routing protocol on devices using FRINX OpenDaylight (ODL) with UniConfig-native. 
 
 
 ## Creating OSPF process
