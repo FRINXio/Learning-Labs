@@ -1,6 +1,6 @@
 {
- "labId": "07-labs-01-OSPF",
- "title": "CLL: FRINX OpenDaylight & UniConfig - OSPF",
+ "labId": "10-labs-01-OSPF-Uniconfig-native",
+ "title": "CLL: FRINX OpenDaylight & UniConfig Native - OSPF",
  "slug": "Learn to use FRINX OpenDaylight with UniConfig and set-up OSPF routing protocol",
  "time": 30,
  "byod": true,
@@ -22,14 +22,15 @@
       {"title": "FRINX"},
       {"title": "Data Center"},
       {"title": "API"},
+      {"title": "Uniconfig Native"},
       {"title": "Network Automation"},
       {"title": "OSPF"},
       {"title": "IGP"}
  ],
  "related": [
 {
-"labId": "01-labs-01-odl-uniconfig-first-steps",
-"title": "FRINX OpenDaylight & UniConfig - First Steps"
+"labId": "11-labs-01-BGP-Uniconfig-native",
+"title": "CLL: FRINX OpenDaylight & UniConfig Native - eBGP"
 }
  ],
  "authors": [
