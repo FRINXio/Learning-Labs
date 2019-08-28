@@ -1,7 +1,7 @@
 
 # FRINX Learning Labs
 
-Get to know our software and solutions hands on through a series of labs. 
+Get to know FRINX software and solutions hands on through a series of labs.
 
 ## Labs
 
