@@ -1,0 +1,50 @@
+{
+ "labId": "09-labs-01-access-lists-Uniconfig-native",
+ "title": "CLL: FRINX OpenDaylight & UniConfig Native - Access lists",
+ "slug": "Learn to use FRINX OpenDaylight with UniConfig Native and create access lists on IOS XRv6 networking device",
+ "time": 60,
+ "byod": true,
+ "files": [
+   {"title": "Step 1: Create access list on a Cisco IOS XRv6 device via uniconfig-native",
+     "file": "1.md"},
+   {"title": "Step 2: Commit configuration to the device ",
+     "file": "2.md"},
+   {"title": "Step 3: Show ipv4/ipv6 access list",
+     "file": "3.md"},
+   {"title": "Step 1: Delete access list from a Cisco IOS XRv6 device via uniconfig-native",
+     "file": "4.md"},
+   {"title": "Step 2: Commit configuration to the device",
+     "file": "5.md"},
+   {"title": "Step 3: Show deleted ipv4/ipv6 access list",
+     "file": "6.md"},
+   {"title": "Step 1: Create ingress/egress on a Cisco IOS XRv6 device via uniconfig-native",
+     "file": "7.md"},
+   {"title": "Step 2: Commit configuration to the device",
+     "file": "8.md"},
+   {"title": "Step 3: Show placed access list",
+     "file": "9.md"},
+   {"title": "Step 1: Delete ingress/egress from a Cisco IOS XRv6 device via uniconfig-native",
+     "file": "10.md"},
+   {"title": "Step 2: Commit configuration to the device",
+     "file": "11.md"},
+   {"title": "Step 3: Show deleted access list",
+     "file": "12.md"}
+ ],
+ "tags": [
+      {"title": "FRINX"},
+      {"title": "Data Center"},
+      {"title": "API"},
+      {"title": "Network Automation"},
+      {"title": "UniConfig Native"}
+ ],
+ "related": [
+{
+"labId": "06-labs-01-access-lists",
+"title": "CLL: FRINX OpenDaylight & UniConfig - Access lists"
+}
+ ],
+ "authors": [
+     {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
+ ],
+ "active": true
+}

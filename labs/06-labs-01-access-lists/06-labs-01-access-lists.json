@@ -17,7 +17,7 @@
      "file": "5.md"},
    {"title": "Step 3: Show deleted ipv4/ipv6 access list",
      "file": "6.md"},
-   {"title": "Step 1: Create access list ingress or egress on interface via CLI",
+   {"title": "Step 1: Create access list ingress or egress on the interface via CLI",
      "file": "7.md"},
    {"title": "Step 2: Commit configuration to the device",
      "file": "8.md"},
