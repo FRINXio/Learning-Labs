@@ -1,11 +1,11 @@
-# FRINX OpenDaylight & UniConfig - Access Lists
+# FRINX OpenDaylight & UniConfig Native - Access Lists
 
-In this lab, you will learn to create, remove and place access-lists on devices using FRINX OpenDaylight (ODL) with UniConfig. 
+In this lab, you will learn to create, remove and place access-lists on devices using FRINX OpenDaylight (ODL) with UniConfig Native. 
 
 
 ## Creating an access list 
 
-[Step 1: Create an ipv4 or ipv6 access list](1.md)
+[Step 1: Create an ipv4 or ipv6 access list on a Cisco IOS XRv6 device via uniconfig-native](1.md)
 
 [Step 2: Commit the configuration to the device](2.md)
 
@@ -14,7 +14,7 @@ In this lab, you will learn to create, remove and place access-lists on devices 
 
 ## Deleting an access list
 
-[Step 1: Delete access list](4.md)
+[Step 1: Delete access list from a Cisco IOS XRv6 device via uniconfig-native](4.md)
 
 [Step 2: Commit the configuration to the device](5.md)
 
@@ -23,7 +23,7 @@ In this lab, you will learn to create, remove and place access-lists on devices 
 
 ## Placing access list on an interface
 
-[Step 1: Create access list ingress or egress on interface](7.md)
+[Step 1: Create access list ingress or egress on interface on a Cisco IOS XRv6 device via uniconfig-native](7.md)
 
 [Step 2: Commit the configuration to the device](8.md)
 
@@ -32,7 +32,7 @@ In this lab, you will learn to create, remove and place access-lists on devices 
 
 ## Deleting access list from an interface
 
-[Step 1: Delete access list ingress or egress from interface](10.md)
+[Step 1: Delete access list ingress or egress from interface on a Cisco IOS XRv6 device via uniconfig-native](10.md)
 
 [Step 2: Commit the configuration to the device](11.md)
 
