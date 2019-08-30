@@ -22,6 +22,6 @@ Get to know FRINX software and solutions hands on through a series of labs.
 
 * [Create access-lists with Uniconfig Native](09-labs-01-access-lists-Uniconfig-native/README.md)
 
-* [Create OSPF routing process Uniconfig Native](10-labs-01-OSPF-Uniconfig-native/README.md)
+* [Create OSPF routing process with Uniconfig Native](10-labs-01-OSPF-Uniconfig-native/README.md)
 
-* [Create eBgp routing process Uniconfig Native](11-labs-01-BGP-Uniconfig-native/README.md)
+* [Create eBgp routing process with Uniconfig Native](11-labs-01-BGP-Uniconfig-native/README.md)
