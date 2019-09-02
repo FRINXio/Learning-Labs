@@ -1,7 +1,7 @@
 {
  "labId": "10-labs-01-OSPF-Uniconfig-native",
  "title": "CLL: FRINX OpenDaylight & UniConfig Native - OSPF",
- "slug": "Learn to use FRINX OpenDaylight with UniConfig and set-up OSPF routing protocol",
+ "slug": "Learn to use FRINX OpenDaylight with UniConfig Native and set-up OSPF routing protocol",
  "time": 30,
  "byod": true,
  "files": [
