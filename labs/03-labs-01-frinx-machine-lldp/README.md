@@ -6,7 +6,7 @@ The goal is to collect LLDP information from different networking devices, recon
 
 [Step 1: Create a new device in the inventory](1.md)
 
-[Step 2: Create a new device in the inventory](2.md)
+[Step 2: Mount device using FRINX Machine](2.md)
 
 [Step 3: Obtain LLDP topology data](3.md)
 
