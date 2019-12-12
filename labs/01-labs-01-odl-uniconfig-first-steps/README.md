@@ -21,9 +21,7 @@ In this lab you will learn to install FRINX OpenDaylight (ODL) with UniConfig an
 
 [Appendix](9.md)
 
-[Basic installation and configuration guide](installation-instructions.html)
-
-[Using your own device? Click here for guidance](byod.html)
+[Basic installation and configuration guide](https://docs.frinx.io/frinx-odl-distribution/oxygen/getting-started.html)
 
 ## Optional requests
 
