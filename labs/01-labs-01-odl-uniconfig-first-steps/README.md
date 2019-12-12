@@ -15,9 +15,7 @@ In this lab you will learn to install FRINX OpenDaylight (ODL) with UniConfig an
 
 [Step 6: Show all interfaces](6.md)
 
-[Step 7: Execute & Read API call to show interface counters details](7.md)
-
-[Step 8: Unmount device](8.md)
+[Step 7: Unmount device](8.md)
 
 [Appendix](9.md)
 
