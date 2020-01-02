@@ -1,49 +1,795 @@
 {
- "labId": "06-labs-01-access-lists",
- "title": "CLL: FRINX OpenDaylight & UniConfig - Access lists",
- "slug": "Learn to use FRINX OpenDaylight with UniConfig and create access lists on IOS XRV networking device",
- "time": 60,
- "byod": true,
- "files": [
-   {"title": "Step 1: Create access list on a Cisco IOS XRV device via CLI",
-     "file": "1.md"},
-   {"title": "Step 2: Commit configuration to the device",
-     "file": "2.md"},
-   {"title": "Step 3: Show ipv4/ipv6 access list",
-     "file": "3.md"},
-   {"title": "Step 1: Delete access list on a Cisco IOS XRV device via CLI",
-     "file": "4.md"},
-   {"title": "Step 2: Commit configuration to the device",
-     "file": "5.md"},
-   {"title": "Step 3: Show deleted ipv4/ipv6 access list",
-     "file": "6.md"},
-   {"title": "Step 1: Create access list ingress or egress on the interface via CLI",
-     "file": "7.md"},
-   {"title": "Step 2: Commit configuration to the device",
-     "file": "8.md"},
-   {"title": "Step 3: Show placed access list",
-     "file": "9.md"},
-   {"title": "Step 1: Delete access list ingress or egress from interface via CLI",
-     "file": "10.md"},
-   {"title": "Step 2: Commit configuration to the device",
-     "file": "11.md"},
-   {"title": "Step 3: Show deleted access list",
-     "file": "12.md"}
- ],
- "tags": [
-      {"title": "FRINX"},
-      {"title": "Data Center"},
-      {"title": "API"},
-      {"title": "Network Automation"}
- ],
- "related": [
-{
-"labId": "01-labs-01-odl-uniconfig-first-steps",
-"title": "FRINX OpenDaylight & UniConfig - First Steps"
-}
- ],
- "authors": [
-     {"name": "Gerhard Wieser", "email": "gwieser@frinx.io"}
- ],
- "active": true
+	"info": {
+		"_postman_id": "f06798e4-8795-440a-a62f-63e0434a23df",
+		"name": "LAB6_NEW",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Mount IOS XR cli",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "edcd3044-e614-4795-be75-75dec749197e",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"",
+							"pm.test(\"Status code\", function () {",
+							"  pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"network-topology:node\" :\n    {\n      \"network-topology:node-id\" : \"{{node_id}}\",\n      \n      \"cli-topology:host\" : \"{{xr_ip}}\",\n      \"cli-topology:port\" : \"{{topology_port}}\",\n      \"cli-topology:transport-type\" : \"{{protocol}}\",\n      \n      \"cli-topology:device-type\" : \"ios xr\",\n      \"cli-topology:device-version\" : \"5.3.4\",\n      \n      \"cli-topology:username\" : \"{{username}}\",\n      \"cli-topology:password\" : \"{{password}}\",\n      \n      \"cli-topology:journal-size\": 150,\n      \"cli-topology:dry-run-journal-size\": 150,\n      \n      \"node-extension:reconcile\": false\n    }\n  }"
+				},
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology={{topology_id_cli}}/node={{node_id}}",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology={{topology_id_cli}}",
+						"node={{node_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check status connected CLI",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "adcf58eb-76ac-46cc-9721-06e431179ccd",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"",
+							"// attempts counter",
+							"var attempt = JSON.parse(postman.getEnvironmentVariable(\"attempt\"));",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"if (responseBody.has(\"node\") && jsonData.node[0]['cli-topology:connection-status'] === \"connected\") {",
+							"    tests[\"Is connected\"] = jsonData.node[0]['cli-topology:connection-status'] === \"connected\";",
+							"    // Reset attempt counter",
+							"    postman.setEnvironmentVariable(\"attempt\", JSON.stringify(1));",
+							"} else {",
+							"    // If too many attempts, abort",
+							"    if (attempt > JSON.parse(postman.getEnvironmentVariable(\"connect_attempts\"))) {",
+							"        postman.setEnvironmentVariable(\"attempt\", JSON.stringify(1));",
+							"        console.log(\"Not connected yet ! Too many attempts !\")",
+							"        // Reset attempt counter",
+							"        tests[\"Unable to connect\"] = false",
+							"    } else {",
+							"        // Schedule next check attempt",
+							"        console.log(\"Not connected yet ! Waiting, attempt : \" + attempt)",
+							"        setTimeout(function(){}, JSON.parse(postman.getEnvironmentVariable(\"connect_attempt_delay\")));",
+							"        postman.setEnvironmentVariable(\"attempt\", JSON.stringify(attempt + 1));",
+							"        postman.setNextRequest('Check status connected CLI');",
+							"    }",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a08551d7-c07a-4457-8e4c-9311fa3d66ac",
+						"exec": [
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology=uniconfig/node=R1",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology=uniconfig",
+						"node=R1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check uniconfig available",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4379812d-c1ec-433e-922f-0651d17a9bca",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"",
+							"// attempts counter",
+							"var attempt = JSON.parse(postman.getEnvironmentVariable(\"attempt\"));",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"if (pm.response.code === 200) {",
+							"    tests[\"Is connected\"] = true;",
+							"    // Reset attempt counter",
+							"    postman.setEnvironmentVariable(\"attempt\", JSON.stringify(1));",
+							"} else {",
+							"    // If too many attempts, abort",
+							"    if (attempt > JSON.parse(postman.getEnvironmentVariable(\"connect_attempts\"))) {",
+							"        postman.setEnvironmentVariable(\"attempt\", JSON.stringify(1));",
+							"        console.log(\"Not connected yet ! Too many attempts !\")",
+							"        // Reset attempt counter",
+							"        tests[\"Unable to connect\"] = false",
+							"    } else {",
+							"        // Schedule next check attempt",
+							"        console.log(\"Uniconfig for node not availableyet ! Waiting, attempt : \" + attempt)",
+							"        setTimeout(function(){}, JSON.parse(postman.getEnvironmentVariable(\"connect_attempt_delay\")));",
+							"        postman.setEnvironmentVariable(\"attempt\", JSON.stringify(attempt + 1));",
+							"        postman.setNextRequest('Check uniconfig available');",
+							"    }",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3fb91cc2-5a2c-46dc-926c-128254949038",
+						"exec": [
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology=uniconfig/node={{node_id}}/frinx-uniconfig-topology:configuration",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology=uniconfig",
+						"node={{node_id}}",
+						"frinx-uniconfig-topology:configuration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create ipv4 access list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "529c3c27-35bb-4d02-ba0a-68d2cd5319bf",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"pm.test(\"Success\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"acl-set\": [\n        {\n            \"name\": \"{{iacl_in-acl-name1}}\",\n            \"type\": \"frinx-openconfig-acl:ACL_IPV4\",\n            \"config\": {\n                \"name\": \"{{iacl_in-acl-name1}}\",\n                \"type\": \"frinx-openconfig-acl:ACL_IPV4\"\n            },\n            \"acl-entries\": {\n                \"acl-entry\": [\n                    {\n                        \"sequence-id\": \"10\",\n                        \"config\": {\n                            \"sequence-id\": \"10\"\n                        },\n                        \"ipv4\": {\n                            \"config\": {\n                                \"protocol\": \"frinx-openconfig-packet-match-types:IP_PROTOCOL\",\n                                \"source-address\": \"192.168.1.215/24\",\n                                \"destination-address\": \"192.168.1.214/24\"\n                            }\n                        },\n                        \"actions\": {\n                            \"config\": {\n                                \"forwarding-action\": \"frinx-openconfig-acl:DROP\"\n                            }\n                        }\n                    }\n                ]\n            }\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology=uniconfig/node={{node_id}}/frinx-uniconfig-topology:configuration/frinx-openconfig-acl:acl/acl-sets/acl-set={{iacl_in-acl-name1}},frinx-openconfig-acl%3AACL_IPV4",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology=uniconfig",
+						"node={{node_id}}",
+						"frinx-uniconfig-topology:configuration",
+						"frinx-openconfig-acl:acl",
+						"acl-sets",
+						"acl-set={{iacl_in-acl-name1}},frinx-openconfig-acl%3AACL_IPV4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show ipv4 access list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "529c3c27-35bb-4d02-ba0a-68d2cd5319bf",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"pm.test(\"Success\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology=uniconfig/node={{node_id}}/frinx-uniconfig-topology:configuration/frinx-openconfig-acl:acl/acl-sets/acl-set={{iacl_in-acl-name1}},frinx-openconfig-acl%3AACL_IPV4",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology=uniconfig",
+						"node={{node_id}}",
+						"frinx-uniconfig-topology:configuration",
+						"frinx-openconfig-acl:acl",
+						"acl-sets",
+						"acl-set={{iacl_in-acl-name1}},frinx-openconfig-acl%3AACL_IPV4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete ipv4 access list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "529c3c27-35bb-4d02-ba0a-68d2cd5319bf",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"pm.test(\"Success\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology=uniconfig/node={{node_id}}/frinx-uniconfig-topology:configuration/frinx-openconfig-acl:acl/acl-sets/acl-set={{iacl_in-acl-name1}},frinx-openconfig-acl%3AACL_IPV4",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology=uniconfig",
+						"node={{node_id}}",
+						"frinx-uniconfig-topology:configuration",
+						"frinx-openconfig-acl:acl",
+						"acl-sets",
+						"acl-set={{iacl_in-acl-name1}},frinx-openconfig-acl%3AACL_IPV4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create ipv6 access list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0800eb6e-5c16-4423-b6c4-5786c97a5f84",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"pm.test(\"Success\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"frinx-openconfig-acl:acl-set\": [\n        {\n            \"type\": \"frinx-openconfig-acl:ACL_IPV6\",\n            \"name\": \"{{iacl_in-acl-name2}}\",\n            \"config\": {\n                \"name\": \"{{iacl_in-acl-name2}}\",\n                \"type\": \"frinx-openconfig-acl:ACL_IPV6\"\n            },\n            \"acl-entries\": {\n                \"acl-entry\": [\n                    {\n                        \"sequence-id\": 2,\n                        \"ipv6\": {\n                            \"config\": {\n                                \"protocol\": \"frinx-openconfig-packet-match-types:IP_PROTOCOL\",\n                                \"source-address\": \"2001:db8:abcd:0012::0/64\",\n                                \"destination-address\": \"2001:db8:abcd:0012::0/64\"\n                            }\n                        },\n                        \"config\": {\n                            \"sequence-id\": 2\n                        },\n                        \"actions\": {\n                            \"config\": {\n                                \"forwarding-action\": \"frinx-openconfig-acl:DROP\"\n                            }\n                        }\n                    }\n                ]\n            }\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology=uniconfig/node={{node_id}}/frinx-uniconfig-topology:configuration/frinx-openconfig-acl:acl/acl-sets/acl-set={{iacl_in-acl-name2}},frinx-openconfig-acl%3AACL_IPV6",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology=uniconfig",
+						"node={{node_id}}",
+						"frinx-uniconfig-topology:configuration",
+						"frinx-openconfig-acl:acl",
+						"acl-sets",
+						"acl-set={{iacl_in-acl-name2}},frinx-openconfig-acl%3AACL_IPV6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show ipv6 access list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0800eb6e-5c16-4423-b6c4-5786c97a5f84",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"pm.test(\"Success\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"frinx-openconfig-acl:acl-set\": [\n        {\n            \"type\": \"frinx-openconfig-acl:ACL_IPV6\",\n            \"name\": \"{{iacl_in-acl-name2}}\",\n            \"config\": {\n                \"name\": \"{{iacl_in-acl-name2}}\",\n                \"type\": \"frinx-openconfig-acl:ACL_IPV6\"\n            },\n            \"acl-entries\": {\n                \"acl-entry\": [\n                    {\n                        \"sequence-id\": 2,\n                        \"ipv6\": {\n                            \"config\": {\n                                \"protocol\": \"frinx-openconfig-packet-match-types:IP_PROTOCOL\",\n                                \"source-address\": \"2001:db8:abcd:0012::0/64\",\n                                \"destination-address\": \"2001:db8:abcd:0012::0/64\"\n                            }\n                        },\n                        \"config\": {\n                            \"sequence-id\": 2\n                        },\n                        \"actions\": {\n                            \"config\": {\n                                \"forwarding-action\": \"frinx-openconfig-acl:DROP\"\n                            }\n                        }\n                    }\n                ]\n            }\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology=uniconfig/node={{node_id}}/frinx-uniconfig-topology:configuration/frinx-openconfig-acl:acl/acl-sets/acl-set={{iacl_in-acl-name2}},frinx-openconfig-acl%3AACL_IPV6",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology=uniconfig",
+						"node={{node_id}}",
+						"frinx-uniconfig-topology:configuration",
+						"frinx-openconfig-acl:acl",
+						"acl-sets",
+						"acl-set={{iacl_in-acl-name2}},frinx-openconfig-acl%3AACL_IPV6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete ipv6 access list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0800eb6e-5c16-4423-b6c4-5786c97a5f84",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"pm.test(\"Success\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology=uniconfig/node={{node_id}}/frinx-uniconfig-topology:configuration/frinx-openconfig-acl:acl/acl-sets/acl-set={{iacl_in-acl-name2}},frinx-openconfig-acl%3AACL_IPV6",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology=uniconfig",
+						"node={{node_id}}",
+						"frinx-uniconfig-topology:configuration",
+						"frinx-openconfig-acl:acl",
+						"acl-sets",
+						"acl-set={{iacl_in-acl-name2}},frinx-openconfig-acl%3AACL_IPV6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "place access list on an interface",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad8c4ab0-ee3a-4f37-a76a-909ebb75e465",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"  pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"interface\": [\n        {\n            \"id\": \"{{iacl_intf-id}}\",\n            \"ingress-acl-sets\": {\n                \"ingress-acl-set\": [\n                    {\n                        \"set-name\": \"{{iacl_in-acl-name1}}\",\n                        \"type\": \"ACL_IPV4\",\n                        \"config\": {\n                            \"set-name\": \"{{iacl_in-acl-name1}}\",\n                            \"type\": \"ACL_IPV4\"\n                        }\n                    }\n                ]\n            },\n            \"egress-acl-sets\": {\n                \"egress-acl-set\": [\n                    {\n                        \"set-name\": \"{{iacl_in-acl-name2}}\",\n                        \"type\": \"ACL_IPV6\",\n                        \"config\": {\n                            \"set-name\": \"{{iacl_in-acl-name2}}\",\n                            \"type\": \"ACL_IPV6\"\n                        }\n                    }\n                ]\n            }\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology=uniconfig/node={{node_id}}/frinx-uniconfig-topology:configuration/frinx-openconfig-acl:acl/interfaces/interface={{iacl_url_intf-id}}",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology=uniconfig",
+						"node={{node_id}}",
+						"frinx-uniconfig-topology:configuration",
+						"frinx-openconfig-acl:acl",
+						"interfaces",
+						"interface={{iacl_url_intf-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show placed access list on an interface",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad8c4ab0-ee3a-4f37-a76a-909ebb75e465",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"  pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology=uniconfig/node={{node_id}}/frinx-uniconfig-topology:configuration/frinx-openconfig-acl:acl/interfaces/interface={{iacl_url_intf-id}}",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology=uniconfig",
+						"node={{node_id}}",
+						"frinx-uniconfig-topology:configuration",
+						"frinx-openconfig-acl:acl",
+						"interfaces",
+						"interface={{iacl_url_intf-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove access list from an interface",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad8c4ab0-ee3a-4f37-a76a-909ebb75e465",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"  pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"interface\": [\n        {\n            \"id\": \"{{iacl_intf-id}}\",\n            \"ingress-acl-sets\": {\n                \"ingress-acl-set\": [\n                    {\n                        \"set-name\": \"{{iacl_in-acl-name1}}\",\n                        \"type\": \"ACL_IPV4\",\n                        \"config\": {\n                            \"set-name\": \"{{iacl_in-acl-name1}}\",\n                            \"type\": \"ACL_IPV4\"\n                        }\n                    }\n                ]\n            },\n            \"egress-acl-sets\": {\n                \"egress-acl-set\": [\n                    {\n                        \"set-name\": \"{{iacl_in-acl-name2}}\",\n                        \"type\": \"ACL_IPV6\",\n                        \"config\": {\n                            \"set-name\": \"{{iacl_in-acl-name2}}\",\n                            \"type\": \"ACL_IPV6\"\n                        }\n                    }\n                ]\n            }\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/data/network-topology:network-topology/topology=uniconfig/node={{node_id}}/frinx-uniconfig-topology:configuration/frinx-openconfig-acl:acl/interfaces/interface={{iacl_url_intf-id}}",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"data",
+						"network-topology:network-topology",
+						"topology=uniconfig",
+						"node={{node_id}}",
+						"frinx-uniconfig-topology:configuration",
+						"frinx-openconfig-acl:acl",
+						"interfaces",
+						"interface={{iacl_url_intf-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "commit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5d10b6b2-68ab-47e0-802a-a99c7585f043",
+						"exec": [
+							"console.log(\"Response: \" + responseBody)",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Validate overall-configuration-status\", function() {",
+							"  pm.expect(pm.response.json()[\"output\"][\"overall-configuration-status\"]).to.eql(postman.getEnvironmentVariable(\"operations_result_complete\"));",
+							"});",
+							"pm.test(\"Validate configuration-status\", function() {",
+							"  pm.expect(pm.response.json()[\"output\"][\"node-config-results\"][\"node-config-result\"][0][\"configuration-status\"]).to.eql(postman.getEnvironmentVariable(\"operations_result_complete\"));",
+							"});",
+							"pm.test(\"Validate nodeId\", function() {",
+							"  pm.expect(pm.response.json()[\"output\"][\"node-config-results\"][\"node-config-result\"][0][\"nodeId\"]).to.eql(postman.getEnvironmentVariable(\"node_id\"));",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"input\": {\n        \"target-nodes\": {\n            \"node\": [\n                \"R1\"\n            ]\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://{{odl_ip}}:8181/rests/operations/uniconfig-manager:commit",
+					"protocol": "http",
+					"host": [
+						"{{odl_ip}}"
+					],
+					"port": "8181",
+					"path": [
+						"rests",
+						"operations",
+						"uniconfig-manager:commit"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
 }
